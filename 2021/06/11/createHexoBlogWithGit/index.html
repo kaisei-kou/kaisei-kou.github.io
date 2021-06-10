@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="使用GitHub+Hexo搭建个人博客0 所需工具 git node.js  Mac升级node.js （利用Node.js的多版本管理器n） 1234567891011121314&#x2F;&#x2F; 查看node版本node -v&#x2F;&#x2F; 清除node缓存sudo npm cache clean -f&#x2F;&#x2F; 使用npm安装n模块sudo npm install -g n&#x2F;&#x2F; node所有版本npm view nod">
+  <meta name="description" content="使用GitHub+Hexo搭建个人博客和绑定域名操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mipha">
-<meta property="og:url" content="http://example.com/2021/06/08/createHexoBlogWithGit/index.html">
+<meta property="og:title" content="使用GitHub+Hexo搭建个人博客">
+<meta property="og:url" content="http://example.com/2021/06/11/createHexoBlogWithGit/index.html">
 <meta property="og:site_name" content="Mipha">
-<meta property="og:description" content="使用GitHub+Hexo搭建个人博客0 所需工具 git node.js  Mac升级node.js （利用Node.js的多版本管理器n） 1234567891011121314&#x2F;&#x2F; 查看node版本node -v&#x2F;&#x2F; 清除node缓存sudo npm cache clean -f&#x2F;&#x2F; 使用npm安装n模块sudo npm install -g n&#x2F;&#x2F; node所有版本npm view nod">
+<meta property="og:description" content="使用GitHub+Hexo搭建个人博客和绑定域名操作">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-06-08T13:50:12.098Z">
-<meta property="article:modified_time" content="2021-06-08T13:52:03.384Z">
+<meta property="article:published_time" content="2021-06-10T23:38:07.000Z">
+<meta property="article:modified_time" content="2021-06-10T23:38:19.079Z">
 <meta property="article:author" content="塞尔达一生推">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHubPage">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/06/08/createHexoBlogWithGit/">
+<link rel="canonical" href="http://example.com/2021/06/11/createHexoBlogWithGit/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title> | Mipha</title>
+  <title>使用GitHub+Hexo搭建个人博客 | Mipha</title>
   
 
 
@@ -150,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/08/createHexoBlogWithGit/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/11/createHexoBlogWithGit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          使用GitHub+Hexo搭建个人博客
         </h1>
 
         <div class="post-meta">
@@ -174,10 +176,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-08 22:50:12 / 修改时间：22:52:03" itemprop="dateCreated datePublished" datetime="2021-06-08T22:50:12+09:00">2021-06-08</time>
+              <time title="创建时间：2021-06-11 08:38:07 / 修改时间：08:38:19" itemprop="dateCreated datePublished" datetime="2021-06-11T08:38:07+09:00">2021-06-11</time>
             </span>
 
           
+            <div class="post-description">使用GitHub+Hexo搭建个人博客和绑定域名操作</div>
 
         </div>
       </header>
@@ -188,7 +191,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="使用GitHub-Hexo搭建个人博客"><a href="#使用GitHub-Hexo搭建个人博客" class="headerlink" title="使用GitHub+Hexo搭建个人博客"></a>使用GitHub+Hexo搭建个人博客</h1><h2 id="0-所需工具"><a href="#0-所需工具" class="headerlink" title="0 所需工具"></a>0 所需工具</h2><ul>
+        <h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><ul>
 <li>git</li>
 <li>node.js</li>
 </ul>
@@ -197,8 +200,8 @@
 <p>升级npm</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm@latest -g</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1 安装Hexo"></a>1 安装Hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 下载Hexo文件</span><br><span class="line">sudo npm install -g hexo-cli</span><br><span class="line">// 在指定目录下创建一个blog文件夹，在该文件夹下初始化博客</span><br><span class="line">hexo init</span><br><span class="line">// 本地预览博客</span><br><span class="line">hexo s</span><br><span class="line">// 默认可以使用 http://localhost:4000 进行访问</span><br></pre></td></tr></table></figure>
-<h2 id="2-部署到GitHub-Pages上"><a href="#2-部署到GitHub-Pages上" class="headerlink" title="2 部署到GitHub Pages上"></a>2 部署到GitHub Pages上</h2><h4 id="添加SSH-Key到github"><a href="#添加SSH-Key到github" class="headerlink" title="添加SSH Key到github"></a>添加SSH Key到github</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 配置用户名和账号的命令</span><br><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email@gmail.com&quot;</span><br><span class="line"></span><br><span class="line">// 生成SSH Key</span><br><span class="line">ssh-keygen -t rsa -C &quot;email@gmail.com&quot;</span><br><span class="line"></span><br><span class="line">// 输出key并复制</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 下载Hexo文件</span><br><span class="line">sudo npm install -g hexo-cli</span><br><span class="line">// 在指定目录下创建一个blog文件夹，在该文件夹下初始化博客</span><br><span class="line">hexo init</span><br><span class="line">// 本地预览博客</span><br><span class="line">hexo s</span><br><span class="line">// 默认可以使用 http://localhost:4000 进行访问</span><br></pre></td></tr></table></figure>
+<h2 id="部署到GitHub-Pages上"><a href="#部署到GitHub-Pages上" class="headerlink" title="部署到GitHub Pages上"></a>部署到GitHub Pages上</h2><h4 id="添加SSH-Key到github"><a href="#添加SSH-Key到github" class="headerlink" title="添加SSH Key到github"></a>添加SSH Key到github</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 配置用户名和账号的命令</span><br><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email@gmail.com&quot;</span><br><span class="line"></span><br><span class="line">// 生成SSH Key</span><br><span class="line">ssh-keygen -t rsa -C &quot;email@gmail.com&quot;</span><br><span class="line"></span><br><span class="line">// 输出key并复制</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>登录github<br>Settings –&gt; SSH and GPG keys –&gt; New SSH key<br>追加刚才复制的key</p>
 <h4 id="本地博客关联到Github主页"><a href="#本地博客关联到Github主页" class="headerlink" title="本地博客关联到Github主页"></a>本地博客关联到Github主页</h4><p>登录Github并且创建一个名字为 username.githug.io 的Public仓库<br>切换到博客目录后执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
@@ -207,7 +210,7 @@
 <p>把博客push到github</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 生成我们想要的博客文件</span><br><span class="line">hexo g</span><br><span class="line">// 将本地的博客文件push到github</span><br><span class="line">hexo d</span><br><span class="line">// 或者</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-GitHub-Pages绑定域名"><a href="#3-GitHub-Pages绑定域名" class="headerlink" title="3 GitHub Pages绑定域名"></a>3 GitHub Pages绑定域名</h2><h4 id="1-申请域名"><a href="#1-申请域名" class="headerlink" title="1)申请域名"></a>1)申请域名</h4><h4 id="2-创建CNAME文件"><a href="#2-创建CNAME文件" class="headerlink" title="2)创建CNAME文件"></a>2)创建CNAME文件</h4><p>在仓库目录下新建CNAME的文件，文件内容中填写域名地址，不包含https和www。<br>仓库的Settings –&gt; Pages –&gt; Custom domain 配置中查看或修改域名</p>
+<h2 id="GitHub-Pages绑定域名"><a href="#GitHub-Pages绑定域名" class="headerlink" title="GitHub Pages绑定域名"></a>GitHub Pages绑定域名</h2><h4 id="1-申请域名"><a href="#1-申请域名" class="headerlink" title="1)申请域名"></a>1)申请域名</h4><h4 id="2-创建CNAME文件"><a href="#2-创建CNAME文件" class="headerlink" title="2)创建CNAME文件"></a>2)创建CNAME文件</h4><p>在仓库目录下新建CNAME的文件，文件内容中填写域名地址，不包含https和www。<br>仓库的Settings –&gt; Pages –&gt; Custom domain 配置中查看或修改域名</p>
 <h4 id="3-DNS解析"><a href="#3-DNS解析" class="headerlink" title="3)DNS解析"></a>3)DNS解析</h4><p>在各家域名服务商处修改域名解析记录，添加如下记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 记录类型   主机记录   记录值</span><br><span class="line">  CNAME      www     username.github.io</span><br><span class="line">  CNAME      @       username.github.io</span><br></pre></td></tr></table></figure>
 
@@ -218,6 +221,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/GitHubPage/" rel="tag"># GitHubPage</a>
+          </div>
 
         
 
@@ -280,7 +287,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.</span> <span class="nav-text">使用GitHub+Hexo搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">0 所需工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">1 安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages%E4%B8%8A"><span class="nav-number">1.3.</span> <span class="nav-text">2 部署到GitHub Pages上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">添加SSH Key到github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">本地博客关联到Github主页</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GitHub-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">1.4.</span> <span class="nav-text">3 GitHub Pages绑定域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%94%B3%E8%AF%B7%E5%9F%9F%E5%90%8D"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1)申请域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BACNAME%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2)创建CNAME文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">3)DNS解析</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">所需工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages%E4%B8%8A"><span class="nav-number">3.</span> <span class="nav-text">部署到GitHub Pages上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="nav-number">3.0.1.</span> <span class="nav-text">添加SSH Key到github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="nav-number">3.0.2.</span> <span class="nav-text">本地博客关联到Github主页</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">GitHub Pages绑定域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%94%B3%E8%AF%B7%E5%9F%9F%E5%90%8D"><span class="nav-number">4.0.1.</span> <span class="nav-text">1)申请域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BACNAME%E6%96%87%E4%BB%B6"><span class="nav-number">4.0.2.</span> <span class="nav-text">2)创建CNAME文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">4.0.3.</span> <span class="nav-text">3)DNS解析</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -297,6 +304,10 @@
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
